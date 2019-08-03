@@ -1,0 +1,11 @@
+{
+  "name": "reddit-search",
+  "version": "1.0.0",
+  "description": "A fully functional reddit search clone",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Helegbedey",
+  "license": "MIT"
+}
