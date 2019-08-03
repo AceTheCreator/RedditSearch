@@ -117,17 +117,55 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"index.js":[function(require,module,exports) {
+})({"redditApi.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  search: function search() {}
+};
+exports.default = _default;
+},{}],"index.js":[function(require,module,exports) {
+"use strict";
+
+var _redditApi = _interopRequireDefault(require("./redditApi"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var searchForm = document.getElementById('search-form');
 var searchInput = document.getElementById('search-input');
 searchForm.addEventListener('submit', function (e) {
   // Get search term
   var searchTerm = searchInput.value; //Get sort
+  // const sortBy = document.querySelector('input[name="sortby"]:checked').value;
+  // console.log(sortBy)
 
-  var sortBy = document.querySelector('input[name="sortby"]:clicked').value;
-  e.preventDefault();
-});
-},{}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+  if (searchTerm === '') {
+    showMessage('Please add a search term');
+  }
+
+  e.preventDefault(); //Clear input
+
+  searchInput.value = ''; //Search Reddit
+
+  _redditApi.default.search(searchTerm);
+}); //show message
+
+function showMessage(message, className) {
+  var div = document.createElement('div');
+  div.className = "\nalert ".concat(className, "\n");
+  div.appendChild(document.createTextNode(message));
+  var searchContainer = document.getElementById('search-container');
+  var search = document.getElementById('search');
+  searchContainer.insertBefore(div, search);
+  setTimeout(function () {
+    return document.querySelector('.alert').remove();
+  }, 3000);
+}
+},{"./redditApi":"redditApi.js"}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

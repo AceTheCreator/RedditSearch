@@ -23,7 +23,7 @@ form svg{
     margin-top: 7.5px;
     margin-left: 20px;
 }
-form input{
+ form #search-input{
     width: 150%;
     margin-left: -35px;
     border-radius: 20px;
@@ -32,7 +32,7 @@ form input{
     text-indent: 70px;
 }
 @media only screen and (max-width:320px){
-    form input{
+   form #search-input{
         width: 140px;
         margin-left: 1px;
         text-indent: 35px;
@@ -53,5 +53,10 @@ form input{
 .result{
     margin-top: 20px;
 }
+.alert{
+    position: absolute;
+    margin-left: -45px;
+}
+
 
 /*# sourceMappingURL=/Reddit-Search.9ad09f98.css.map */
