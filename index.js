@@ -10,23 +10,22 @@ TimeAgo.addLocale(en)
 
 const searchForm = document.getElementById('search-form');
 const searchInput = document.getElementById('search-input');
+const group = document.getElementById('group');
 
 searchForm.addEventListener('submit', e =>{
     // Get search term
     const searchTerm = searchInput.value;
     //Get sort
-    // const sortBy = document.querySelector('input[name="sortby"]:checked').value;
-    // console.log(sortBy)
+    const sortBy = document.querySelector('input[name="sortby"]:checked').value;
+    console.log(sortBy)
     if(searchTerm === ''){
         showMessage('Please add a search term');
     }
     e.preventDefault();
 
-//Clear input
-searchInput.value='';
-
-//Search Reddit
-reddit.search(searchTerm)
+    group.addEventListener('click', e =>{
+       //Search Reddit
+reddit.search(searchTerm, sortBy)
 .then(results => {
     console.log(results);
     let output = '<div class="result">';
@@ -67,6 +66,9 @@ ${follow} subscribers
     output += '</div>';
     document.getElementById('results').innerHTML = output;
 });
+    })
+//Clear input
+searchInput.value='';
 
 })
 
