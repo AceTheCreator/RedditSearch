@@ -48,6 +48,15 @@ form svg{
     color: black;
     font-weight: bold;
 }
+
+/* A link that has been visited */
+#sortby .nav-item a:visited {
+    color: black;
+}
+/* A link that is selected */
+#sortby .nav-item a:active {
+    color: red;
+}
 #results{
     margin-top: 3%;
 }
@@ -61,7 +70,7 @@ form svg{
 }
 .card-body img{
     width: 80px;
-   height: 70px;
+   max-height: 80px;
     border-radius: 5px;
 }
 .content{
@@ -103,9 +112,9 @@ form svg{
     font-weight: bold;
     font-size: 12px;
 }
-.comment-subscribe .btn{
-    background: white;
-    border-color: rgb(255, 89, 39);
-    font-size: 10px;
-    font-weight: bold;
+#subscribe{
+    margin-left: 10px;
+}
+.comment-subscribe svg{
+    margin-top: -4px;
 }
