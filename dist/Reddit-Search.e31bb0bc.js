@@ -3656,10 +3656,11 @@ searchForm.addEventListener('submit', function (e) {
     showMessage('Please add a search term');
   }
 
-  e.preventDefault();
-  group.addEventListener('click', function (e) {}); //Clear input
+  e.preventDefault(); //Clear input
 
-  searchInput.value = ''; //Search Reddit
+  searchInput.value = '';
+  var loader = "<div id=\"loading\" class=\"loading\"> Loading&#8230; </div>";
+  document.getElementById('results').innerHTML = loader; //Search Reddit
 
   _redditApi.default.search(searchTerm).then(function (results) {
     console.log(results); //List
@@ -3740,7 +3741,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1613" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "6097" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -20,12 +20,10 @@ searchForm.addEventListener('submit', e =>{
         showMessage('Please add a search term');
     }
     e.preventDefault();
-
-    group.addEventListener('click', e =>{
-       
-    })
 //Clear input
 searchInput.value='';
+let loader = `<div id="loading" class="loading"> Loading&#8230; </div>`;
+document.getElementById('results').innerHTML = loader;
 
 //Search Reddit
 reddit.search(searchTerm)
