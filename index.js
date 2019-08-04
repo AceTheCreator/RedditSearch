@@ -22,6 +22,7 @@ searchForm.addEventListener('submit', e =>{
     e.preventDefault();
 //Clear input
 searchInput.value='';
+//Adding an loader before data view
 let loader = `<div id="loading" class="loading"> Loading&#8230; </div>`;
 document.getElementById('results').innerHTML = loader;
 
@@ -68,11 +69,15 @@ ${follow} subscribers
     output += '</div>';
     document.getElementById('results').innerHTML = output;    
     list.addEventListener('click', e =>{
+        document.getElementById("grid-svg").style.fill = "rgb(200, 200, 200)";
+        document.getElementById("list-svg").style.fill = "black";
         document.getElementById('results').innerHTML = output;
     })
 
     //Grid
     grid.addEventListener('click', e =>{
+        document.getElementById("grid-svg").style.fill = "black";
+        document.getElementById("list-svg").style.fill = "rgb(200, 200, 200)";
         let output = '<div class="card-columns">';
     results.forEach(post => {
         const ts = new Date(post.created);

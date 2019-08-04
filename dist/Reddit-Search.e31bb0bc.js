@@ -3658,7 +3658,8 @@ searchForm.addEventListener('submit', function (e) {
 
   e.preventDefault(); //Clear input
 
-  searchInput.value = '';
+  searchInput.value = ''; //Adding an loader before data view
+
   var loader = "<div id=\"loading\" class=\"loading\"> Loading&#8230; </div>";
   document.getElementById('results').innerHTML = loader; //Search Reddit
 
@@ -3677,10 +3678,14 @@ searchForm.addEventListener('submit', function (e) {
     output += '</div>';
     document.getElementById('results').innerHTML = output;
     list.addEventListener('click', function (e) {
+      document.getElementById("grid-svg").style.fill = "rgb(200, 200, 200)";
+      document.getElementById("list-svg").style.fill = "black";
       document.getElementById('results').innerHTML = output;
     }); //Grid
 
     grid.addEventListener('click', function (e) {
+      document.getElementById("grid-svg").style.fill = "black";
+      document.getElementById("list-svg").style.fill = "rgb(200, 200, 200)";
       var output = '<div class="card-columns">';
       results.forEach(function (post) {
         var ts = new Date(post.created);
