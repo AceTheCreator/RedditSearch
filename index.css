@@ -31,7 +31,7 @@ form svg{
     background: rgb(241, 241, 241);
     text-indent: 70px;
 }
-#group{
+#list, #grid{
     cursor: pointer;
 }
 @media only screen and (max-width:320px){
@@ -54,21 +54,50 @@ form svg{
 #results{
     margin-top: 3%;
 }
-.card{
+#results h1{
+margin-top: 20%;
+text-align: center;
+}
+#list-card{
     margin-top: 10px;
     width: 100%;
     border-color: transparent;
+    cursor: pointer;
 }
-.card-body{
+#list-card .card-body{
     display: flex;
 }
-.card-body img{
+#list-card .card-body img{
     width: 80px;
    max-height: 80px;
     border-radius: 5px;
 }
-.content{
+#list-card .content{
     margin-left: 30px;
+}
+#grid-card{
+    border-radius: 0px;
+    cursor: pointer;
+}
+#grid-card img{
+    border-radius: 0px;
+}
+#grid-card #submit{
+    font-size: 12px;
+    margin-left: 15px;
+    margin-top: 5px;
+}
+#grid-card #submit a{
+    color: rgb(255, 89, 39);
+}
+#grid-card .card-title{
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 15px;
+    margin-top: -10px;
+}
+#grid-card .card-body{
+    margin-top: 20px;
 }
 #header{
     font-weight: bold;
@@ -114,7 +143,7 @@ form svg{
 }
 @media only screen and (max-width:992px){
 
-    .card-body img{
+  #list-card  .card-body img{
         width: 40px;
        max-height: 50px;
         border-radius: 5px;
