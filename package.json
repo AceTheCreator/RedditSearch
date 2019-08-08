@@ -2,14 +2,23 @@
   "name": "reddit-search",
   "version": "1.0.0",
   "description": "A fully functional reddit search clone",
-  "main": "app.js",
+  "main": "index.js",
+  "homepage": "https://github.io/Helegbedey/RedditSearch",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "author": "Helegbedey",
   "license": "MIT",
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "javascript-time-ago": "^2.0.1",
     "numeral": "^2.0.6"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3"
   }
 }

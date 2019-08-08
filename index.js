@@ -57,10 +57,9 @@ viewBox="0 0 172 172"
 style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#e74c3c"><path d="M21.5,21.5c-7.83362,0 -14.33333,6.49972 -14.33333,14.33333v93.16667h14.33333v-93.16667h114.66667v-14.33333zM50.16667,50.16667c-7.90483,0 -14.33333,6.4285 -14.33333,14.33333v71.66667c0,7.90483 6.4285,14.33333 14.33333,14.33333h55.59765l2.09961,-2.09961l5.06706,-5.06706l-5.06706,-5.06706l-2.09961,-2.09961h-55.59765v-52.84017l50.16667,31.34017l50.16667,-31.34017l0.014,22.43782l14.31934,-14.33333v-26.93099c0,-7.90483 -6.4285,-14.33333 -14.33333,-14.33333zM50.16667,64.5h100.33333v4.49316l-50.16667,31.34017l-50.16667,-31.34017zM128.13216,117.99805l-10.13411,10.13411l15.20117,15.20117l-15.20117,15.20117l10.13411,10.13411l15.20117,-15.20117l15.20117,15.20117l10.13411,-10.13411l-15.20117,-15.20117l15.20117,-15.20117l-10.13411,-10.13411l-15.20117,15.20117z"></path></g></g></svg>          
 ${follow} subscribers
           </div>
-                    
           </div>
           <p id='domain'>
-          <button type="button" class="btn btn-light">Readit</button>
+        <a href="${post.url}" target="_blank" class="btn btn-light">Readit</a>
            </p>
         </div>
       </div>
@@ -90,8 +89,8 @@ ${follow} subscribers
         <p class="card-title" id="submit">submitted ${date} by <a href = ""> ${post.author_fullname}</a></p>
         <h5 class="card-title">${truncateText(post.title, 80)}</h5>
         <img src="${image}" class="card-img-top" alt="...">
-        <div class="card-body">
-        <div class="comment-subscribe">
+        <a href="${post.url}" target="_blank" class="card-body">
+        <div class="comment-subscribe" id="grid-cs">
           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
 width="18" height="18"
 viewBox="0 0 172 172"
@@ -103,7 +102,7 @@ viewBox="0 0 172 172"
 style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#e74c3c"><path d="M21.5,21.5c-7.83362,0 -14.33333,6.49972 -14.33333,14.33333v93.16667h14.33333v-93.16667h114.66667v-14.33333zM50.16667,50.16667c-7.90483,0 -14.33333,6.4285 -14.33333,14.33333v71.66667c0,7.90483 6.4285,14.33333 14.33333,14.33333h55.59765l2.09961,-2.09961l5.06706,-5.06706l-5.06706,-5.06706l-2.09961,-2.09961h-55.59765v-52.84017l50.16667,31.34017l50.16667,-31.34017l0.014,22.43782l14.31934,-14.33333v-26.93099c0,-7.90483 -6.4285,-14.33333 -14.33333,-14.33333zM50.16667,64.5h100.33333v4.49316l-50.16667,31.34017l-50.16667,-31.34017zM128.13216,117.99805l-10.13411,10.13411l15.20117,15.20117l-15.20117,15.20117l10.13411,10.13411l15.20117,-15.20117l15.20117,15.20117l10.13411,-10.13411l-15.20117,-15.20117l15.20117,-15.20117l-10.13411,-10.13411l-15.20117,15.20117z"></path></g></g></svg>          
 ${follow} subscribers
           </div>
-      </div>
+      </a>
        
       </div>
         `
@@ -117,7 +116,7 @@ ${follow} subscribers
 })
 
 //show message
-function showMessage(message, className){
+const showMessage = (message, className) =>{
 const div = document.createElement('div');
 div.className=`
 alert ${className}
@@ -135,7 +134,7 @@ setTimeout(() => document.querySelector('.alert').remove(), 3000)
 }
 
 
-function truncateText(text, limit) {
+const truncateText = (text, limit) => {
     const shortened = text.indexOf(' ', limit);
     if(shortened === -1) return text;
     return text.substring(0, shortened);
